@@ -24,7 +24,8 @@ class NumberUtil {
 		return val == getReverse(val);
 	}
 	
-	public static int getReverse(int val)
+	/* we need to have reverse of a number*/
+	public static int getReverse(int val) 
 	{
 		int result = 0;
 		
