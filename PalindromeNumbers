@@ -1,0 +1,32 @@
+class App {
+	public static void main(String [] args)
+	{
+		int n = 10;
+		
+		while (n <= 9999) {
+			if (NumberUtil.isPalindrome(n))
+				System.out.println(n);
+			
+			++n;
+		}
+	}
+}
+
+class NumberUtil {
+	public static boolean isPalindrome(int val)
+	{
+		return val == getReverse(val);
+	}
+	
+	public static int getReverse(int val)
+	{
+		int result = 0;
+		
+		while (val != 0) {
+			result = result * 10 + val % 10;
+			val /= 10;
+		}
+		
+		return result;
+	}
+}
