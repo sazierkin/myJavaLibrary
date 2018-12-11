@@ -22,6 +22,7 @@ class StringUtil {
 		return reverse(s).equals(s);
 	}
 	
+	/* we need to have reverse of a string */ 
 	public static String reverse(String s)
 	{
 		String str = "";
