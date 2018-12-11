@@ -1,4 +1,4 @@
-/*checks is a number palindrome and it's test code*/
+/*checks is a number palindrome less then 9999*/
 
 class App {
 	public static void main(String [] args)
