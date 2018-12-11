@@ -1,0 +1,55 @@
+/* Test code shows us a number is given between two numbers is armstrong or not */ 
+
+class App {
+	public static void main(String [] args)
+	{		
+		for (int n = -99999; n <= 999999; ++n)
+			if (NumberUtil.isArmstrong(n))
+				System.out.println(n);
+	}
+}
+
+class NumberUtil {
+	public static boolean isArmstrong(int val)
+	{
+		if (val < 0)
+			return false;
+		
+		if (val <= 9)
+			return true;
+		
+		int n = getDigitsCount(val);
+		int sum = 0;
+		int temp = val;
+		
+		while (temp != 0) {
+			sum += pow(temp % 10, n);
+			temp /= 10;
+		}
+		
+		return val == sum;				
+	}
+	
+	public static int getDigitsCount(int val)
+	{
+		int count = 0;
+		
+		do {
+			++count;
+			val /= 10;
+		} while (val != 0);
+		
+		return count;
+	}
+	
+	public static int pow(int a, int b)
+	{
+		b = Math.abs(b);
+		int result = 1;
+		
+		for (int i = 0; i < b; ++i)
+			result *= a;
+		
+		return result;		
+	}
+}
