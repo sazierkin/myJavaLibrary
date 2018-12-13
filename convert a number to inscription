@@ -1,0 +1,53 @@
+/* enter a number at most 3 digits than programme converts your number to inscription  */
+
+import java.util.Scanner;
+
+class Exercise {
+	public static void main(String [] args)
+	{
+		Scanner kb = new Scanner(System.in);
+		System.out.println("Enter a number :");
+		int val = Integer.parseInt(kb.nextLine());
+			
+		String str = NumberUtil.toText3DigitsTR(val);
+			
+		System.out.println(str);
+	}
+}
+
+class NumberUtil {
+	public static String toText3DigitsTR(int val)
+	{
+		if (val == 0)
+			return "zero";
+			
+		String [] ones = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+		String [] tens = {"", "ten", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety"};
+			
+		String str = "";
+			
+		if (val < 0) {
+			str += "minus";
+			val *= -1;
+		}	
+			
+		int a = val / 100;
+		int b = val / 10 % 10;
+		int c = val % 10;
+			
+		if (a != 0) {			
+			if (a != 1)
+				str += ones[a];
+				
+			str += "hundred";
+		}
+			
+		if (b != 0)
+			str += tens[b];
+			
+		if (c != 0)
+			str += ones[c];		
+			
+		return str;		
+		}
+	}
