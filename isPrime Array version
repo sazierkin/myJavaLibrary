@@ -1,0 +1,65 @@
+	/*Given any number n, code shows you from first to nth prime number in an array */
+
+class NumberUtil {
+	public static void display (int a [])
+	{    
+        for (int val : a)
+            System.out.print(val + " ");
+         
+        System.out.println();       
+	}
+	
+	public static int [] getPrimes(int n)
+	{
+		if (n < 1)
+			return new int[0];
+		
+		int [] primes = new int[n];
+		
+		if (n != 1) {			
+			int count = 1;
+			int i = 3;			
+			int index = 0;
+			primes[index++] = 2;
+			
+			while (count < n) {
+				if (isPrime(i)) {
+					primes[index++] = i;
+					++count;
+				}
+				
+				i += 2;
+			}			
+		}
+		else
+			primes[0] = 2;
+		
+		return primes;	
+	}
+
+	public static boolean isPrime(int val)
+	{
+		if (val <= 1)
+			return false;
+		
+		if (val % 2 == 0)
+			return val == 2;
+		
+		if (val % 3 == 0)
+			return val == 3;
+		
+		if (val % 5 == 0)
+			return val == 5;
+		
+		if (val % 7 == 0)
+			return val == 7;
+		
+		for (int i = 11; i * i <= val; i+=2)
+			if (val % i == 0)
+				return false;
+		
+		return true;
+		
+		
+	}
+}
